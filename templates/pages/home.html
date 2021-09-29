@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1> Tasks </h1>
+{% if errors %} {{errors}} {% endif %}
+{% include 'pages/tasks_list.html' %}
+{% include 'pages/task_form.html' %}
+
+{% endblock content %}

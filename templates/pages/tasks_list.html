@@ -1,0 +1,25 @@
+<div
+id="tasks"
+hx-target="#tasks"
+hx-swap="outerHTML"
+> 
+
+{% for task in tasks %}
+
+{% if task.done %} 
+    <div class="custom-checkbox">
+        <input type="checkbox" id="checkbox-done-{{task.id}}" value="" checked="checked" hx-post= "{% url 'complete' task.id %}">
+        <label for="checkbox-done-{{task.id}}"><del> {{ task.name }} </del> </label>
+         <button class="close" hx-delete= "{% url 'delete' task.id %}"> &times; </button>
+    </div>
+{% else %} 
+    <div class="custom-checkbox">
+        <input type="checkbox" id="checkbox-notdone-{{task.id}}" value="" hx-post= "{% url 'complete' task.id %}">
+        <label for="checkbox-notdone-{{task.id}}">{{ task.name }}  </label>
+         <button class="close" hx-delete= "{% url 'delete' task.id %}"> &times; </button>
+    </div>
+{% endif %} 
+
+{% endfor %}
+
+</div>

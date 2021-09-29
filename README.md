@@ -1,0 +1,1 @@
+This is a simple Django/HTMX TO DO List application
